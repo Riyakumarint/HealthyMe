@@ -1,0 +1,20 @@
+.footer {
+    text-align: center;
+    color: white;
+    background-color: #064663;
+    font-family: 'Poppins', sans-serif;    
+    padding: 20px;
+    width: 100%;
+    min-height: 190px;
+    /* height: 100%; */
+    /* position: absolute; */
+    bottom:0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0px;
+}
+
+.footer h3{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
