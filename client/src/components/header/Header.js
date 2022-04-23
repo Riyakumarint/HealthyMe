@@ -3,10 +3,15 @@ import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import logo from '../../images/healthyme.png'
+
 function Header() {
   const auth = useSelector((state) => state.auth);
+  // const [menu, setMenu] = useState(false);
   const { user, isLogged } = auth;
-  
+  const [clicked, setClicked] = useState(false);
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
   const handleLogout = async () => {
     try {
       await axios.get("/user/logout");
@@ -27,8 +32,7 @@ function Header() {
           aria-haspopup="true"
           aria-expanded="false"
         >
-          
-          <img className="avatar_user" src={user.avatar} alt="" />{" "}
+          <img className="avatar_user" src={user.avatar} alt="" />
           {user.username} <i className="fas fa-angle-down"></i>
         </NavLink>
         <div className="dropdown">
@@ -61,8 +65,9 @@ function Header() {
       <div className="menu-bar">
         <nav className="navbar navbar-expand-lg navbar-light">
           <a href="/" className="navbar-brand">
-            <h1 onClick={() => window.scrollTo({ top: 0 })}><img className="logo" src={logo}/>Healthy<span>Me</span></h1>
-          </a>
+<h1 onClick={() => window.scrollTo({ top: 0 })}><img className="logo" src={logo}/>Healthy<span>Me</span></h1>
+</a>
+
 
           <button
             class="navbar-toggler"
@@ -73,20 +78,57 @@ function Header() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <div className="hamburger-menu" >
-              <i className="fa fa-bars"></i>
+            <div className="hamburger-menu" onClick={handleClick}>
+              <i className={clicked ? "fa fa-times" : "fa fa-bars"}></i>
             </div>
           </button>
 
           <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul className="navbar-nav menu ml-auto">
+              <NavLink
+                exact
+                to="/create_appointments"
+                class="main-nav"
+                activeStyle={{
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+                onClick={() => window.scrollTo({ top: 0 })}
+              >
+                Appointment
+              </NavLink>
+              <NavLink
+                exact
+                to="/find_doctor"
+                class="main-nav"
+                activeStyle={{
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+                onClick={() => window.scrollTo({ top: 0 })}
+              >
+                Find Doctor
+              </NavLink>
              
+              <NavLink
+                exact
+                to="/symptom_checker"
+                class="main-nav"
+                activeStyle={{
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+                onClick={() => window.scrollTo({ top: 0 })}
+              >
+                Symptom Checker
+              </NavLink>
+
               <li className="nav-item dropdown" style={{ opacity: 1 }}>
                 <div
                   className="dropdown"
                   style={{ transform: "translateX(75px)" }}
                 >
-
+                  {/* <NotifyModal /> */}
                 </div>
               </li>
 

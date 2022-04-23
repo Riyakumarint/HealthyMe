@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useSelector } from "react";
 import axios from "axios";
 import Issue from "./issue";
+import SideNav from "../profile/sidenav/SideNav";
 // import "./home.css";
 
 const SymptomChecker = () => {
@@ -151,6 +152,7 @@ const SymptomChecker = () => {
           <table className="medical">
             <thead>
               <tr>
+                
                 <th>Symptom</th>
                 <th>Action</th>
               </tr>
@@ -159,7 +161,7 @@ const SymptomChecker = () => {
               {currSymptomsID.map((symptomsID) => (
                 <tr key={symptomsID}>
                   {symptoms.map((symptom) => (
-                    <div>
+                    <>
                       {symptom.ID === symptomsID ? (
                         <div>
                           <td>{symptom.Name}</td>
@@ -176,7 +178,7 @@ const SymptomChecker = () => {
                       ) : (
                         ""
                       )}
-                    </div>
+                    </>
                   ))}
                 </tr>
               ))}
@@ -197,7 +199,7 @@ const SymptomChecker = () => {
           <table className="medical">
             <thead>
               <tr>
-                <th>Isue</th>
+                <th>Issue</th>
                 <th>Chances</th>
                 <th>Specialization</th>
               </tr>
@@ -227,12 +229,13 @@ const SymptomChecker = () => {
 
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1> Symptom Checker</h1>
+     <div className="continer-symptom">
+        <div className="pro">
+          <div className="profile_page">
+          <div className="book_appointment">
+              <h1>Symptom Checker</h1>
+            </div>
+            <div class="col s12 m6 l4">
       <div className="input-field">
         <label htmlFor="Age">Year of birth</label>
         <input
@@ -242,34 +245,43 @@ const SymptomChecker = () => {
           onChange={handleChangeYOB}
           value={yob}
           name=""
-        />
-      </div>
-      <div>
-        <label htmlFor="Gender">
-          <span class="required-field"></span>Gender
-        </label>
-        <div className="Gender">
-          <label for="Male">Male</label>
-          <input
-            type="radio"
-            id="Male"
-            onChange={handleChangeGender}
-            name="Gender"
-            defaultChecked
-            value="Male"
-            className="mode_o"
-          />
-          <label for="Female">Female</label>
-          <input
-            type="radio"
-            id="Female"
-            onChange={handleChangeGender}
-            name="Gender"
-            value="Female"
-            className="mode_o"
-          />
-        </div>
-      </div>
+        /></div>
+          </div>
+          {/* gender */}
+          <div className="row">
+                <div class="col s12 m6 l4">
+                  <div className="form-group">
+                    <div className="input-field">
+                      <label htmlFor="Gender">
+                        <span class="required-field"></span>Gender
+                      </label>
+                      <div className="Mode_of_Appointment">
+                        <label for="male">Male</label>
+                        <input
+                          type="radio"
+                          id="male"
+                          onChange={handleChangeGender}
+                          name="male"
+                          defaultChecked
+                          value="male"
+                          className="mode_o"
+                        />
+                        <label for="female">Female</label>
+                        <input
+                          type="radio"
+                          id="female"
+                          onChange={handleChangeGender}
+                          name="female"
+                          value="female"
+                          className="mode_o"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+      
       <div class="col s12 m6 l4">
         <div className="form-group">
           <label htmlFor="add_symptoms">Add symptoms</label>
@@ -297,9 +309,11 @@ const SymptomChecker = () => {
       >
         Check
       </button>
-      {renderResult()}
-
-      <h1>Or</h1>
+            {renderResult()}
+            <br></br>
+<hr></hr>
+            <h2>OR</h2>
+            <br></br>
       <div class="col s12 m6 l4">
         <div className="form-group">
           <label htmlFor="Find_issue">Check Issues</label>
@@ -318,9 +332,12 @@ const SymptomChecker = () => {
           </select>
         </div>
       </div>
-      <a href={"/issue/" + issue_id}>Check</a>
+          <button className="blog_post_btn mt-3 d-block mx-auto"><a href={"/issue/" + issue_id}>Check</a></button>
+          </div></div></div>
     </>
   );
 };
 
 export default SymptomChecker;
+
+

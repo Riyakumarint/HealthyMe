@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ReactStars from "react-stars";
-import Chat from "../../../images/chat.png";
 import "./get.css";
 import axios from "axios";
 import CardVert from "../doctor_card/CardVert";
@@ -200,9 +199,7 @@ const Doctor = () => {
                 color2={"#ffd700"}
                 edit={false}
               />
-              <button className="open-button" onClick={handleClick}>
-                <img src={Chat} />
-              </button>
+              
             </div>
 
             <div className="profile-container">
@@ -235,12 +232,12 @@ const Doctor = () => {
               <br></br>
 
               {/* blogs */}
-              <div>
+              {/* <div>
                 <h5> Articles of this doctor goes here</h5>
                 {renderBlogs(blogs)}
-              </div>
-              <hr></hr>
-              <br></br>
+              </div> */}
+              {/* <hr></hr>
+              <br></br> */}
 
               {/* comment and rating block */}
               {isLogged ? (
@@ -259,7 +256,7 @@ const Doctor = () => {
                 </div>
               ) : (
                 ""
-              )}
+              )} 
              
             </div>
           </div>

@@ -136,6 +136,10 @@
   cursor: pointer;
 }
 
+.medical td a{
+  color: #000;
+}
+
 /*----------Create Blog----------*/
 
 .create_blog {
@@ -212,7 +216,7 @@
   overflow: hidden;
   position: relative;
   margin-left: 20px;
-  background-color: #f8bec1;
+  background-color: #f5c27a;
   justify-content: center;
   align-items: center;
   padding-top: 150px;
@@ -376,9 +380,11 @@
 
 }
 .aboutUsPage h1{
-  margin: 0 0 25px 0;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 25px;
   font-size: 40px;
-  font-family: "Poppins", sans-serif;
+  font-family:'Times New Roman', Times, serif;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 5px;

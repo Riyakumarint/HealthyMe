@@ -56,37 +56,35 @@ const Issue = (prop) => {
 
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+       <div className="continer-symptom">
+        <div className="pro">
       <h1>{issue_info.Name}</h1>
-      <h2>Short Description</h2>
+      <h3>Short Description</h3>
       {issue_info.DescriptionShort}
       <br />
       <hr />
-      <h2>Description</h2>
+      <h3>Description</h3>
       {issue_info.Description}
       <br />
       <hr />
-      <h2>Medical Condition</h2>
+      <h3>Medical Condition</h3>
       {issue_info.MedicalCondition}
       <br />
       <hr />
-      <h2>Possible Symptoms</h2>
+      <h3>Possible Symptoms</h3>
       {issue_info.PossibleSymptoms}
       <br />
       <hr />
-      <h2>Other Names</h2>
+      <h3>Other Names</h3>
       {issue_info.ProfName}
       {issue_info.Synonyms}
       <br />
       <hr />
-      <h2>Treatment Description</h2>
+      <h3>Treatment Description</h3>
       {issue_info.TreatmentDescription}
       <br />
-      <hr />
+        <hr />
+        </div></div>
     </>
   );
 };

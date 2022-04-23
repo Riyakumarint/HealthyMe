@@ -119,6 +119,12 @@ function Body() {
           exact
         />
 
+<Route path="/about_us" component={About} exact />
+        <Route
+          path="/contact_us"
+          component={isLogged ? Contact : Login}
+          exact
+        />
         <Route path="*" exact component={NotFound} />
       </Switch>
     </section>
@@ -126,3 +132,4 @@ function Body() {
 }
 
 export default Body;
+

@@ -47,6 +47,9 @@ button {
 /* ----------------- Profile ------------------- */
 @import url("./components/body/profile/profile.css");
 
+/* ----------------- Doctor ------------------- */
+@import url("./components/body/doctor_card/doc.css");
+
 /* ----------------- SideBar ------------------- */
 @import url("./components/body/profile/sidenav/sidenav.css");
 

@@ -8,7 +8,7 @@ function AboutUs() {
           <div className="container">
             <h1>About Us</h1>
             <div className="row">
-              <div className="col-md-4 col-sm-6 col-xs-12">
+              <div className="col-md-6 ">
                 <div className="single-team">
                   <div className="img-area">
                     <img
@@ -47,7 +47,7 @@ function AboutUs() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4 col-sm-6 col-xs-12">
+              <div className="col-md-6">
                 <div className="single-team">
                   <div className="img-area">
                     <img
@@ -86,45 +86,7 @@ function AboutUs() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4 col-sm-6 col-xs-12">
-                <div className="single-team">
-                  <div className="img-area">
-                    <img
-                      src="https://res.cloudinary.com/dg3d7tlpg/image/upload/v1640328038/WhatsApp_Image_2021-12-24_at_12.07.47_PM_n6q563.jpg"
-                      class="img-responsive"
-                      alt=""
-                    />
-                    <div className="social">
-                      <ul className="list-inline">
-                        <li>
-                          <a href="https://www.facebook.com/yaggya.garg">
-                            <i className="fa fa-facebook"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.instagram.com/yaggyagarg/">
-                            <i className="fa fa-instagram"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://github.com/yaggya01">
-                            <i className="fa fa-github"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.linkedin.com/in/yaggya-garg-08a356202/">
-                            <i className="fa fa-linkedin"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="img-text">
-                    <h4>Yaggya Garg</h4>
-                    <h5>20194203 (CSE)</h5>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

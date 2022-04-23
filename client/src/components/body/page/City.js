@@ -97,7 +97,7 @@ function City() {
               onChange={(e) => setCity(e.target.value)}
             />
 
-            <button className="category_button" type="submit">
+            <button className="blog_post_btn" type="submit">
               {onEdit ? "Update" : "Create"}
             </button>
           </form>
@@ -106,7 +106,7 @@ function City() {
             <hr></hr>
           </div>
           <div style={{ overflowX: "auto" }}>
-            <table className="category_table">
+            <table className="customers">
               <thead>
                 <tr>
                   <th>Name</th>
