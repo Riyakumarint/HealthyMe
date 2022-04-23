@@ -2,7 +2,7 @@
     text-align: center;
     color: white;
     background-color: #064663;
-    font-family: 'Poppins', sans-serif;    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
     padding: 20px;
     width: 100%;
     min-height: 190px;
@@ -15,6 +15,6 @@
 }
 
 .footer h3{
-    font-family: 'Poppins', sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
 }

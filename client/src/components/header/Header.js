@@ -2,7 +2,7 @@ import { /*useContext,*/ useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
-
+import logo from '../../images/healthyme.png'
 function Header() {
   const auth = useSelector((state) => state.auth);
   const { user, isLogged } = auth;
@@ -61,7 +61,7 @@ function Header() {
       <div className="menu-bar">
         <nav className="navbar navbar-expand-lg navbar-light">
           <a href="/" className="navbar-brand">
-            <h1 onClick={() => window.scrollTo({ top: 0 })}>Abhimanyu</h1>
+            <h1 onClick={() => window.scrollTo({ top: 0 })}><img className="logo" src={logo}/>Healthy<span>Me</span></h1>
           </a>
 
           <button

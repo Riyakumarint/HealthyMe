@@ -5,7 +5,7 @@
     background-image: linear-gradient(-90deg,#041C32,#0b3155,#064663);
     opacity: 1;
     box-shadow: 0 0 15px #041C32;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .navbar-nav {
@@ -14,8 +14,14 @@
 }
 .menu-bar .navbar-brand h1{
     font-size: 2rem;
-    font-family: 'Poppins';
+    font-family:'Times New Roman', Times, serif;
     color:rgb(250, 248, 248);
+} 
+
+.menu-bar .navbar-brand span{
+    font-size: 2rem;
+    font-family:'Times New Roman', Times, serif;
+    color:rgb(236, 11, 11);
 } 
 
 .menu-bar .navbar-brand:hover{ 
@@ -54,7 +60,7 @@
     color: rgb(240, 238, 238);
     opacity: 0.96;
     padding: 5px ;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 5px 5px ;
 }
 .menu-bar a:hover{
@@ -81,6 +87,12 @@
 .drop-nav{
     position: relative;
     right: -19px;
+}
+.logo {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: -5px;
 }
 
 .drop-nav .avatar_user {
