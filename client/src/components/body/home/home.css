@@ -272,6 +272,7 @@
   padding: -50px -10px;
   border-radius: 50%;
   border: 3px solid #fff;
+  z-index: 100;
 }
 
 .open-button:hover{
