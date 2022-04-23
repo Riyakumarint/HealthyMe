@@ -332,7 +332,7 @@ const userCtrl = {
           clinic_address: "Clinic address",
           experience_year: "Experience",
           caseRecord: [],
-          // blogRecord: [],
+          blogRecord: [],
         });
 
         newMedicalProfileData.save(async (error1, result1) => {
