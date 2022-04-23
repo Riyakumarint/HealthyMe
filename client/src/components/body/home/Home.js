@@ -2,7 +2,7 @@ import React, { useState, useEffect ,useSelector} from "react";
 import axios from "axios";
 import './home.css'
 
-const GetDiagnosis = () => {
+const Home = () => {
   const [token, setToken] = useState("");
   const [symptoms, setSymptoms] = useState([]);
   const [currSymptomsID, setcurrSymptomsID] = useState([10, 15]); // testing on symptom id 10, i.e, abdominal pain
@@ -84,71 +84,8 @@ const GetDiagnosis = () => {
 
   return (
     <>
-      {/* <header> */}
-        <div class="header-row">
-            <a href="./index.html">
-                <div class="logo">
-                    <img src="./images/logo.png" alt="Symptor Checker Icon"/>
-                    <h1>QuickCheck</h1>
-                </div>
-            </a>
-
-            <ul>
-                <li class="underline"><a href="./index.html">Home</a></li>
-                {/* <li><a href="./takeTheTest.html">Take the Test</a></li> */}
-            </ul>
-        </div>
-    {/* </header> */}
-
-
-    <section class="hero full-screen-width">
-        <div class="text-area">
-            <p>QuickCheck is an online symptom checker that allows users to receive a preliminary diagnosis,
-                based on the symptoms they report from the comfort of their home.</p>
-            <div class="button-area">
-                {/* <a href="./takeTheTest.html"> */}
-                    {/* <div class="btn-grey">
-                        Take the test <img src="./images/arrow.png" alt="Right Arrow"/>
-                    </div>
-                </a> */}
-            </div>
-        </div>
-        <div class="image-area">
-            <img src="./images/homeImage.png" alt="Home Image"/>
-        </div>
-    </section>
-    <section class="cards-section full-screen-width">
-        <div class="card">
-            <img src="./images/free.png" alt="Free"/>
-            <div class="text">
-                <h2>Free</h2>
-                <p>QuickCheck cares about you. That’s why our service is free!</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./images/accessible.png" alt="Free"/>
-            <div class="text">
-                <h2>Accessible</h2>
-                <p>QuickCheck is accessible to everyone all over the world!</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./images/easyToUse.png" alt="Free"/>
-            <div class="text">
-                <h2>Easy To Use</h2>
-                <p>QuickCheck software is intuitive and simple to use. Take the test to find out!</p>
-            </div>
-        </div>
-    </section>
-
-    <p class="disclaimer" >Diclaimer: This is not real medical advice. Please contact a professional
-        doctor for a proper
-        diagnosis </p>
-
-    {/* <footer> */}
-        <p>Made with &nbsp;<img src="./images/heart.png" alt="Free"/>&nbsp;at DubHacks</p>
-    {/* </footer> */}
-      {/* <p>
+      
+      <p>
         <br />
         <br />
         <br />
@@ -164,9 +101,76 @@ const GetDiagnosis = () => {
         <br />
         <br />
         <p>{JSON.stringify(diagResult)}</p>
-      </p> */}
+      </p>
+      <header>
+        <div class="header-row">
+            <a href="./index.html">
+
+                <div class="logo">
+
+                    <img src="./images/logo.png" alt="Symptor Checker Icon"/>
+                    <h1>QuickCheck</h1>
+                </div>
+            </a>
+
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li class="underline"><a href="./takeTheTest.html">Take the Test</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <p>Answer Some Basic Questions first</p>
+        <p class="disclaimer">Diclaimer: This is not real medical advice. Please contact a
+            professional
+            doctor for a proper
+            diagnosis </p>
+        <div class="form-area">
+            <div class="error"> <img src="./images/cross.png" alt="cross"/> Please fill out all fields correctly </div>
+            <div class="searchInput">
+                <input type="text" name="year-of-birth" required/>
+
+                <label for="year-of-birth" class="label-name"> <span class="content-name">
+                        Year of Birth
+                    </span></label>
+            </div>
+            <div class="searchInput">
+                <input type="text" name="gender" required/>
+
+                <label for="gender" class="label-name"> <span class="content-name">
+                        Gender
+                    </span></label>
+            </div>
+
+
+            <div class="all-symptoms-autogenerate">
+                <div class="dropdown-container">
+                    <div class="searchInput">
+                        <input class="dropdown" type="text" name="Symptoms" required/>
+
+                        <label for="Symptoms" class="label-name"> <span class="content-name">
+                                Symptoms
+                            </span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-options">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="add-symptoms">
+                <img class="image" src="./images/plus.png" alt="Add Button"/>Add More Symptoms
+            </div>
+
+            <div class="btn-container">
+                <div class="button button-see-results">See Results</div>
+            </div>
+        </div>
+    </main>
     </>
   );
 };
 
-export default GetDiagnosis;
+export default Home;
