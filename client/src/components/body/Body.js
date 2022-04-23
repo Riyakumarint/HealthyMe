@@ -4,18 +4,36 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import ActivationEmail from "./auth/ActivationEmail";
 import NotFound from "../utils/NotFound/NotFound";
-import ForgotPass from "../body/auth/ForgotPassword";
-import ResetPass from "../body/auth/ResetPassword";
+import ForgotPass from "./auth/ForgotPassword";
+import ResetPass from "./auth/ResetPassword";
+import Category from "./page/Categories";
+import Speciality from "./page/Speciality";
+import City from "./page/City";
 import Profile from "../body/profile/Profile";
-import EditUser from "../body/profile/EditUser";
-import Home from "../body/home/Home";
-import SymptomChecker from "./page/SymtomChecker";
 import Issue from "./page/issue";
+import Contact from "./page/Contact";
+import About from "./page/AboutUs";
+import Appointments from "./page/Appointments";
+import Appointment_doctor from "./page/Appointment_doctor";
+import Appointment_patient from "./page/Appointment_patient";
+import Create_appointment from "./page/Create_appointment";
+import Find_doctor from "./page/Find_doctor";
+import Doctor from "./page/Doctor";
+import EditUser from "./profile/EditUser";
+import Home from "./home/Home";
+import Create_Slots from "./create_Slot/Create_Slot";
+import Book_Slots from "./book_Slots/Book_Slots";
+import Specialist from "./page/Specialist";
+import Medical_profile from "./profile/Medical_Profile";
+import SymptomChecker from "./page/SymtomChecker";
+import Medical_history from "./profile/Medical_History";
+import Megical_history_doc from "./meddical_history_doc/Medical_histor_doc";
 import { useSelector } from "react-redux";
 
 function Body() {
   const auth = useSelector((state) => state.auth);
-  const { isLogged, isAdmin } = auth;
+  const { isLogged, isAdmin, isDoctor } = auth;
+
   return (
     <section>
       <Switch>
@@ -46,12 +64,55 @@ function Body() {
           exact
         />
 
+        <Route path="/profile" component={isLogged ? Profile : Login} exact />
+
         <Route
-          path="/profile"
-          component={isLogged ? Profile : NotFound}
+          path="/medical_profile"
+          component={isLogged ? Medical_profile : Login}
+          exact
+        />
+        <Route
+          path="/medical_history"
+          component={isLogged ? Medical_history : Login}
+          exact
+        />
+        <Route
+          path="/medicalhistory/:user"
+          component={isLogged ? Megical_history_doc : Login}
           exact
         />
 
+        <Route path="/category" component={isLogged ? Category : Login} exact />
+        <Route
+          path="/speciality"
+          component={isLogged ? Speciality : Login}
+          exact
+        />
+        <Route path="/city" component={isLogged ? City : Login} exact />
+        <Route
+          path="/create_appointments"
+          component={isLogged ? Create_appointment : Login}
+          exact
+        />
+        <Route
+          path="/get_appointments"
+          component={isLogged ? Appointments : Login}
+          exact
+        />
+        <Route
+          path="/appointment/:caseId"
+          component={
+            isLogged && isDoctor ? Appointment_doctor : Appointment_patient
+          }
+          exact
+        />
+        <Route
+          path="/createSlot"
+          component={isLogged && isDoctor ? Create_Slots : NotFound}
+          exact
+        />
+        <Route path="/find_doctor" component={Find_doctor} exact />
+        <Route path="/doctor/:doctorId" component={Doctor} exact />
         <Route
           path="/edit_user/:id"
           component={isAdmin ? EditUser : NotFound}
