@@ -9,7 +9,8 @@ import ResetPass from "../body/auth/ResetPassword";
 import Profile from "../body/profile/Profile";
 import EditUser from "../body/profile/EditUser";
 import Home from "../body/home/Home";
-import SymptomChecker from './page/SymtomChecker'
+import SymptomChecker from "./page/SymtomChecker";
+import Issue from "./page/issue";
 import { useSelector } from "react-redux";
 
 function Body() {
@@ -20,6 +21,7 @@ function Body() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/symptom_checker" component={SymptomChecker} exact />
+        <Route path="/issue/:issueId" component={Issue} exact />
         <Route path="/login" component={isLogged ? NotFound : Login} exact />
         <Route
           path="/register"
