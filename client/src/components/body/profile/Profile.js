@@ -13,7 +13,7 @@ import {
   dispatchGetAllUsers,
 } from "../../../redux/actions/usersAction";
 import SideNav from "./sidenav/SideNav";
-
+import AdminProfile from "./Admin_profile"
 const initialState = {
   name: "",
   password: "",
@@ -331,7 +331,16 @@ function Profile() {
           <div className="line-2">
             <hr></hr>
           </div>
+
+          {isAdmin ? (
+            <AdminProfile />
+          ) : (
+            ""
+          )}
+
+
         </div>
+
       </div>
     </>
   );

@@ -45,7 +45,7 @@ function SideNav() {
             <span class="icon">
               <i class="fas fa-comments" aria-hidden="true"></i>
             </span>
-            <span class="title">Symptom Checker</span>
+            <span class="title">Symptom</span>
           </a>
         </li>
 
