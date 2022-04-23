@@ -13,3 +13,19 @@
   justify-content: center;
   text-align: center;
 }
+
+.open-button {  
+  cursor: pointer;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 90px;
+  height: 90px;
+  padding: -50px -10px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.open-button:hover{
+  box-shadow: 0 0 35px 0 #000b10;
+}

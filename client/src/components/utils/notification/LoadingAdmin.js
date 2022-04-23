@@ -2,7 +2,7 @@ import React from "react";
 import load from "../../../images/load.svg";
 import "./notification.css";
 
-const Loading = () => {
+const LoadingAdmin = () => {
   return (
     <div
       className="position-fixed w-100 h-100 text-center loading"
@@ -19,4 +19,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default LoadingAdmin;
