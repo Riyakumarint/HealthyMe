@@ -1,14 +1,20 @@
-import React, { useState, useEffect ,useSelector} from "react";
+import React, { useState, useEffect, useSelector } from "react";
 import axios from "axios";
-import './home.css'
+import "./home.css";
 
 const Home = () => {
   const [token, setToken] = useState("");
   const [symptoms, setSymptoms] = useState([]);
+  const [issues, setIssues] = useState([]);
+
   const [currSymptomsID, setcurrSymptomsID] = useState([10, 15]); // testing on symptom id 10, i.e, abdominal pain
   const [gender, setGender] = useState("Male");
   const [yob, setYob] = useState(22);
   const [diagResult, setDiagResult] = useState();
+
+  const [issue_id, setIssue_id] = useState(84);
+  const [issue_info, setIssue_info] = useState({});
+
   const [callback, setCallback] = useState(0);
 
   //   fetching token
@@ -33,7 +39,7 @@ const Home = () => {
       .catch(function (error) {
         console.log(error);
       });
-  }, [callback,token]);
+  }, [callback]);
 
   //   fetching symptoms
   useEffect(() => {
@@ -45,9 +51,28 @@ const Home = () => {
       },
     };
 
+    // axios(config)
+    //   .then(function (response) {
+    //     setSymptoms(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+  }, [callback, token]);
+
+  // fetching issues
+  useEffect(() => {
+    var config = {
+      method: "get",
+      url: `https://healthservice.priaid.ch/issues?token=${token}&format=json&language=en-gb`,
+      headers: {
+        Cookie: "ASP.NET_SessionId=ttsj5fqvfnrvl400bglt2zbd",
+      },
+    };
+
     axios(config)
       .then(function (response) {
-        setSymptoms(response.data);
+        setIssues(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -55,7 +80,7 @@ const Home = () => {
   }, [callback, token]);
 
   //   getting diagnosis result
-  const GetDiag = async () => {
+  const symptom_checker = async () => {
     var config = {
       method: "get",
       url:
@@ -82,9 +107,28 @@ const Home = () => {
       });
   };
 
+  //   fetching info of a particulat issue
+  const get_info = async (issue_id) => {
+    var config = {
+      method: "get",
+      url: `https://healthservice.priaid.ch/issues/${issue_id}/info?token=${token}&format=json&language=en-gb`,
+      headers: {
+        Cookie: "ASP.NET_SessionId=ttsj5fqvfnrvl400bglt2zbd",
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+        setIssue_info(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <>
-      
       <p>
         <br />
         <br />
@@ -96,7 +140,7 @@ const Home = () => {
         <i
           className="fas fa-plus-circle"
           title="Add"
-          onClick={() => GetDiag()}
+          onClick={() => get_info(84)}
         ></i>
         <br />
         <br />
@@ -104,71 +148,78 @@ const Home = () => {
       </p>
       <header>
         <div class="header-row">
-            <a href="./index.html">
+          <a href="./index.html">
+            <div class="logo">
+              <img src="./images/logo.png" alt="Symptor Checker Icon" />
+              <h1>QuickCheck</h1>
+            </div>
+          </a>
 
-                <div class="logo">
-
-                    <img src="./images/logo.png" alt="Symptor Checker Icon"/>
-                    <h1>QuickCheck</h1>
-                </div>
-            </a>
-
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li class="underline"><a href="./takeTheTest.html">Take the Test</a></li>
-            </ul>
+          <ul>
+            <li>
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="underline">
+              <a href="./takeTheTest.html">Take the Test</a>
+            </li>
+          </ul>
         </div>
-    </header>
+      </header>
 
-    <main>
+      <main>
         <p>Answer Some Basic Questions first</p>
-        <p class="disclaimer">Diclaimer: This is not real medical advice. Please contact a
-            professional
-            doctor for a proper
-            diagnosis </p>
+        <p class="disclaimer">
+          Diclaimer: This is not real medical advice. Please contact a
+          professional doctor for a proper diagnosis{" "}
+        </p>
         <div class="form-area">
-            <div class="error"> <img src="./images/cross.png" alt="cross"/> Please fill out all fields correctly </div>
-            <div class="searchInput">
-                <input type="text" name="year-of-birth" required/>
+          <div class="error">
+            {" "}
+            <img src="./images/cross.png" alt="cross" /> Please fill out all
+            fields correctly{" "}
+          </div>
+          <div class="searchInput">
+            <input type="text" name="year-of-birth" required />
 
-                <label for="year-of-birth" class="label-name"> <span class="content-name">
-                        Year of Birth
-                    </span></label>
+            <label for="year-of-birth" class="label-name">
+              {" "}
+              <span class="content-name">Year of Birth</span>
+            </label>
+          </div>
+          <div class="searchInput">
+            <input type="text" name="gender" required />
+
+            <label for="gender" class="label-name">
+              {" "}
+              <span class="content-name">Gender</span>
+            </label>
+          </div>
+
+          <div class="all-symptoms-autogenerate">
+            <div class="dropdown-container">
+              <div class="searchInput">
+                <input class="dropdown" type="text" name="Symptoms" required />
+
+                <label for="Symptoms" class="label-name">
+                  {" "}
+                  <span class="content-name">Symptoms</span>
+                </label>
+              </div>
             </div>
-            <div class="searchInput">
-                <input type="text" name="gender" required/>
+          </div>
+          <div class="dropdown-options">
+            <ul></ul>
+          </div>
+          <div class="add-symptoms">
+            <img class="image" src="./images/plus.png" alt="Add Button" />
+            Add More Symptoms
+          </div>
 
-                <label for="gender" class="label-name"> <span class="content-name">
-                        Gender
-                    </span></label>
-            </div>
-
-
-            <div class="all-symptoms-autogenerate">
-                <div class="dropdown-container">
-                    <div class="searchInput">
-                        <input class="dropdown" type="text" name="Symptoms" required/>
-
-                        <label for="Symptoms" class="label-name"> <span class="content-name">
-                                Symptoms
-                            </span></label>
-                    </div>
-                </div>
-            </div>
-            <div class="dropdown-options">
-                <ul>
-
-                </ul>
-            </div>
-            <div class="add-symptoms">
-                <img class="image" src="./images/plus.png" alt="Add Button"/>Add More Symptoms
-            </div>
-
-            <div class="btn-container">
-                <div class="button button-see-results">See Results</div>
-            </div>
+          <div class="btn-container">
+            <div class="button button-see-results">See Results</div>
+          </div>
         </div>
-    </main>
+      </main>
     </>
   );
 };
