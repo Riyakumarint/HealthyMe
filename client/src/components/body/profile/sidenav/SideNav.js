@@ -8,8 +8,6 @@ function SideNav() {
   return (
     <div id="mySidenav" className="sidebar fixed-left">
       <ul>
-
-
         <li>
           <a href="/profile" onClick={() => window.scrollTo({ top: 0 })}>
             <span class="icon">
@@ -41,7 +39,10 @@ function SideNav() {
           </a>
         </li>
         <li>
-          <a href="/symptom_checker" onClick={() => window.scrollTo({ top: 0 })}>
+          <a
+            href="/symptom_checker"
+            onClick={() => window.scrollTo({ top: 0 })}
+          >
             <span class="icon">
               <i class="fas fa-comments" aria-hidden="true"></i>
             </span>
@@ -49,7 +50,7 @@ function SideNav() {
           </a>
         </li>
 
-        <li>
+        {/* <li>
           {isDoctor ? (
             <a href="/create_blog" onClick={() => window.scrollTo({ top: 0 })}>
               <span class="icon">
@@ -60,7 +61,7 @@ function SideNav() {
           ) : (
             ""
           )}
-        </li>
+        </li> */}
         <li>
           {isAdmin ? (
             <a href="/speciality" onClick={() => window.scrollTo({ top: 0 })}>
@@ -85,7 +86,7 @@ function SideNav() {
             ""
           )}
         </li>
-        
+
         <li>
           {isDoctor ? (
             <a href="/createSlot" onClick={() => window.scrollTo({ top: 0 })}>
