@@ -8,7 +8,7 @@ const Footer = () => {
       <span> &nbsp; • &nbsp;</span>
       <a className="contact_footer" href="/about_us"> About Us</a>
 
-      <p> Copyright &copy; 2021 , HealthyMe. All rights reserved.</p>
+      <p> Copyright &copy; 2022 , HealthyMe. All rights reserved.</p>
     </div>
   )
 }

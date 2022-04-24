@@ -95,6 +95,10 @@
   padding: 0 5px;
 }
 
+.sym_name{
+  width: 100%;
+}
+
 .category_button {
   background: #064663;
   color: white;
