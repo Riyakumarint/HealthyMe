@@ -860,7 +860,7 @@ const Create_appointment = () => {
               <>
                 {!success ? (
                   <StripeCheckout
-                    stripeKey="pk_test_51HQTH8J8AwZ227xYT8OvsIp1chlJv7XntMKHbP9cgEBCtvz0fCI1iVVUa54fR84jocMN1AnYu5WCbPTlot10TEvD00B5BLvgmL"
+                    stripeKey="pk_test_51HQTH8J8AwZ227xYbiOfoMed9JMEnQcOtUR7WW5sYlBtoeqCi9JGFUPdDWoxpXgZ8v1rOVfhDcMXGQl4KengOhn500xnntghnX"
                     // {process.env.REACT_APP_KEY}
                     token={makePayment}
                     name="Make Payment"

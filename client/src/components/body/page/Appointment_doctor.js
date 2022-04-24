@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+// import Chat_Component from "../chat_Component/Chat_Component.js";
 import axios from "axios";
 import "./get.css";
 import {
@@ -657,7 +658,7 @@ const Appointment_doctor = () => {
             </div>
           </div>
         </div>
-        
+        {/* <Chat_Component appointment={appointment} /> */}
       </div>
     </>
   );

@@ -168,7 +168,7 @@ export default function Create_Slots() {
               />
               <button
                 type="button"
-                className="category_button"
+                className="blog_post_btn"
                 onClick={() => handleOnClick()}
               >
                 Create

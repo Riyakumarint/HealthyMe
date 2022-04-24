@@ -152,9 +152,8 @@ const SymptomChecker = () => {
           <table className="medical">
             <thead>
               <tr>
-                
                 <th>Symptom</th>
-                <th>Action</th>
+                {/* <th>Action</th> */}
               </tr>
             </thead>
             <tbody>
@@ -164,7 +163,7 @@ const SymptomChecker = () => {
                     <>
                       {symptom.ID === symptomsID ? (
                         <div>
-                          <td>{symptom.Name}</td>
+                          <td className="sym_name">{symptom.Name}</td>
                           <td>
                             <i
                               className="fas fa-trash-alt"
@@ -229,115 +228,120 @@ const SymptomChecker = () => {
 
   return (
     <>
-     <div className="continer-symptom">
+      <div className="continer-symptom">
         <div className="pro">
           <div className="profile_page">
-          <div className="book_appointment">
+            <div className="book_appointment">
               <h1>Symptom Checker</h1>
             </div>
             <div class="col s12 m6 l4">
-      <div className="input-field">
-        <label htmlFor="Age">Year of birth</label>
-        <input
-          className="oxygenLevel"
-          id="exampleInputage1"
-          placeholder="YYYY"
-          onChange={handleChangeYOB}
-          value={yob}
-          name=""
-        /></div>
-          </div>
-          {/* gender */}
-          <div className="row">
-                <div class="col s12 m6 l4">
-                  <div className="form-group">
-                    <div className="input-field">
-                      <label htmlFor="Gender">
-                        <span class="required-field"></span>Gender
-                      </label>
-                      <div className="Mode_of_Appointment">
-                        <label for="male">Male</label>
-                        <input
-                          type="radio"
-                          id="male"
-                          onChange={handleChangeGender}
-                          name="male"
-                          defaultChecked
-                          value="male"
-                          className="mode_o"
-                        />
-                        <label for="female">Female</label>
-                        <input
-                          type="radio"
-                          id="female"
-                          onChange={handleChangeGender}
-                          name="female"
-                          value="female"
-                          className="mode_o"
-                        />
-                      </div>
+              <div className="input-field">
+                <label htmlFor="Age">
+                  {" "}
+                  <span class="required-field"></span>Year of birth
+                </label>
+                <input
+                  className="oxygenLevel"
+                  id="exampleInputage1"
+                  placeholder="YYYY"
+                  onChange={handleChangeYOB}
+                  value={yob}
+                  name=""
+                />
+              </div>
+            </div>
+            {/* gender */}
+            <div className="row">
+              <div class="col s12 m6 l4">
+                <div className="form-group">
+                  <div className="input-field">
+                    <label htmlFor="Gender">
+                      <span class="required-field"></span>Gender
+                    </label>
+                    <div className="Mode_of_Appointment">
+                      <label for="male">Male</label>
+                      <input
+                        type="radio"
+                        id="male"
+                        onChange={handleChangeGender}
+                        name="gender"
+                        // defaultChecked
+                        value="male"
+                        className="mode_o"
+                      />
+                      <label for="female">Female</label>
+                      <input
+                        type="radio"
+                        id="female"
+                        onChange={handleChangeGender}
+                        name="gender"
+                        value="female"
+                        className="mode_o"
+                      />
                     </div>
                   </div>
                 </div>
-               
               </div>
-      
-      <div class="col s12 m6 l4">
-        <div className="form-group">
-          <label htmlFor="add_symptoms">Add symptoms</label>
-          <select
-            className="form-control text-capitalize symptom"
-            value={symptom.Name}
-            name="ID"
-            onChange={handleChangeSymptom}
-          >
-            <option value="">Select a Symptom</option>
-            {symptoms.map((symptom) => (
-              <option key={symptom.ID} value={symptom.ID}>
-                {symptom.Name}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+            </div>
 
-      {renderSymptoms()}
+            <div class="col s12 m6 l4">
+              <div className="form-group">
+                <label htmlFor="add_symptoms">Add symptoms</label>
+                <select
+                  className="form-control text-capitalize symptom"
+                  value={symptom.Name}
+                  name="ID"
+                  onChange={handleChangeSymptom}
+                >
+                  <option value="">Select a Symptom</option>
+                  {symptoms.map((symptom) => (
+                    <option key={symptom.ID} value={symptom.ID}>
+                      {symptom.Name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
 
-      <button
-        className="blog_post_btn mt-3 d-block mx-auto"
-        onClick={symptom_checker}
-      >
-        Check
-      </button>
+            {renderSymptoms()}
+
+            <button
+              className="blog_post_btn mt-3 d-block mx-auto"
+              onClick={symptom_checker}
+            >
+              Check
+            </button>
             {renderResult()}
             <br></br>
-<hr></hr>
+            <hr></hr>
             <h2>OR</h2>
             <br></br>
-      <div class="col s12 m6 l4">
-        <div className="form-group">
-          <label htmlFor="Find_issue">Check Issues</label>
-          <select
-            className="form-control text-capitalize symptom"
-            value={issue_id}
-            name="ID"
-            onChange={handleChangeIssue}
-          >
-            <option value="">Select a Issue</option>
-            {issues.map((issue) => (
-              <option key={issue.ID} value={issue.ID}>
-                {issue.Name}
-              </option>
-            ))}
-          </select>
+            <div class="col s12 m6 l4">
+              <div className="form-group">
+                <label htmlFor="Find_issue">Check Issues</label>
+                <select
+                  className="form-control text-capitalize symptom"
+                  value={issue_id}
+                  name="ID"
+                  onChange={handleChangeIssue}
+                >
+                  <option value="">Select a Issue</option>
+                  {issues.map((issue) => (
+                    <option key={issue.ID} value={issue.ID}>
+                      {issue.Name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <button className="blog_post_btn mt-3 d-block mx-auto">
+              <a href={"/issue/" + issue_id}>Check</a>
+            </button>
+          </div>
         </div>
       </div>
-          <button className="blog_post_btn mt-3 d-block mx-auto"><a href={"/issue/" + issue_id}>Check</a></button>
-          </div></div></div>
     </>
   );
 };
 
 export default SymptomChecker;
-
-
